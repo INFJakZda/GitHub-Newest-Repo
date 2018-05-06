@@ -1,5 +1,5 @@
 # GitHub-Newest-Repo
-REST service which returns last modified Repository of given organisation.
+App which returns last modified Repository of given organisation.
 
 ## What can you do?
 
