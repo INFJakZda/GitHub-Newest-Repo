@@ -46,17 +46,11 @@ public class Application {
             List<RepoInfo> repos = rateResponse.getBody();
 
             //Find the last mod repo
-            String nameLastModRepo = "";
-            String dateLastModRepo = "2000-01-01T01:00:00Z";
+            RepoList repoList = new RepoList(repos);
 
-            for(RepoInfo repoInfo: repos) {
-                if(repoInfo.getPushedAt().compareTo(dateLastModRepo) > 0) {
-                    nameLastModRepo = repoInfo.getName();
-                    dateLastModRepo = repoInfo.getPushedAt();
-                }
-            }
+            RepoInfo repoInfo = repoList.getLastMod();
 
-            log.info("Last pushed repo Name: " + nameLastModRepo + ", Date: " + dateLastModRepo);
+            log.info("Last pushed repo Name: " + repoInfo.getName() + ", Date: " + repoInfo.getPushedAt());
         };
     }
 
